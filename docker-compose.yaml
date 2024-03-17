@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  python_cont:
+    image: postgres:14.3-alpine
+    container_name: db_auth
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=database
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_auth_data:/var/lib/postgresql/data
+
+volumes:
+  db_auth_data:
